@@ -2,9 +2,11 @@ package net.mokemoketa.paperanimationlibrary;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -13,16 +15,16 @@ import net.mokemoketa.paperlibrary.PaperView;
 
 public class MainActivity extends AppCompatActivity {
     public LinearLayout linearLayout;
-    public BasicCanvasView basicCanvasView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        linearLayout = (LinearLayout) findViewById(R.id.mainframe);
+        //frameLayout = new FrameLayout(this);
+        //setContentView(frameLayout);
         /*
-        linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        setContentView(linearLayout);
         basicCanvasView = new BasicCanvasView(this);
         basicCanvasView.showCanvas(true);
         linearLayout.addView(basicCanvasView);
@@ -56,14 +58,19 @@ public class MainActivity extends AppCompatActivity {
         linearLayout.addView(test1);
         test1.addView(button1);
 */
-        final PaperView paperview1 = new PaperView();
-        ImageView imageview1 = (ImageView)findViewById(R.id.hedgehog);
+        final ImageView imageview1 = (ImageView)findViewById(R.id.imageView);
+        imageview1.setImageResource(R.drawable.hedgehog);
+
+        final PaperView paperview1 = new PaperView(getApplicationContext());
+        linearLayout.addView(paperview1);
+
         //setContentView(imageview1);
         imageview1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    paperview1.finalAnimation(v,1);
+                    //imageview1.setVisibility(View.INVISIBLE);
+                    paperview1.finalAnimation(v,2);
                 }
                 return false;
             }
