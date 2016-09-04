@@ -87,7 +87,7 @@ public class PaperView extends LinearLayout{
         //ObjectAnimator[] oa_left2 = new ObjectAnimator[totalImageNum];
         for(int i = 0; i < div; i++) {
             ObjectAnimator oa_left1 = ObjectAnimator.ofFloat(imageviewList[i], "scaleX", 0f);
-            ObjectAnimator oa_left2 = ObjectAnimator.ofFloat(imageviewList[i], "translationX", 0, rowSize/2);
+            ObjectAnimator oa_left2 = ObjectAnimator.ofFloat(imageviewList[i], "translationX", 0, rowSize*(div-i-1+0.5f));
             oa_left1.setDuration(2000);
             oa_left2.setDuration(2000);
             oa_left1.start();
@@ -95,7 +95,7 @@ public class PaperView extends LinearLayout{
         }
         for(int i = 0; i < div; i++){
             ObjectAnimator oa_right1 = ObjectAnimator.ofFloat(imageviewList[totalImageNum - i - 1], "scaleX", 0f);
-            ObjectAnimator oa_right2 = ObjectAnimator.ofFloat(imageviewList[totalImageNum - i - 1], "translationX", 0, -rowSize/2);
+            ObjectAnimator oa_right2 = ObjectAnimator.ofFloat(imageviewList[totalImageNum - i - 1], "translationX", 0, -rowSize*(div-i-1+0.5f));
             oa_right1.setDuration(2000);
             oa_right2.setDuration(2000);
             oa_right1.start();
