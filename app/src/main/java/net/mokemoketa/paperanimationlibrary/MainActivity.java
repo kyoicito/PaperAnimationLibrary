@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageView imageview1 = (ImageView)findViewById(R.id.imageView);
         imageview1.setImageResource(R.drawable.hedgehog);
 
-        final PaperView paperview1 = new PaperView(getApplicationContext());
+        final PaperView paperview1 = new PaperView(this);//
         linearLayout.addView(paperview1);
 
         //setContentView(imageview1);
