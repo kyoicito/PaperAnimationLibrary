@@ -69,8 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    //imageview1.setVisibility(View.INVISIBLE);
-                    paperview1.finalAnimation(v,4);
+                    paperview1.finalAnimation(v, 4, 2000);
                 }
                 return false;
             }
